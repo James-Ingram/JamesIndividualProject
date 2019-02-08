@@ -1,4 +1,4 @@
-package com.qa.persitence.repository;
+package com.qa.persistence.repository;
 
 import static javax.transaction.Transactional.TxType.REQUIRED;
 import java.util.Collection;
@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
-import com.qa.persitence.domain.Product;
+import com.qa.persistence.domain.Product;
 import com.qa.util.JSONUtil;
 
 public class ProductDBRepository implements ProductRepository{
@@ -29,7 +29,7 @@ public class ProductDBRepository implements ProductRepository{
 
 	@Override
 	public String getAllProducts() {
-		Query query = manager.createQuery("Select a FROM Recipe a");
+		Query query = manager.createQuery("Select a FROM Product a");
 		Collection<Product> products = (Collection<Product>) query.getResultList();
 			
 		return util.getJSONForObject(products);

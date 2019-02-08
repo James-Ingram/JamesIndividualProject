@@ -1,4 +1,4 @@
-package com.qa.persitence.repository;
+package com.qa.persistence.repository;
 
 public interface ProductRepository {
 

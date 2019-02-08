@@ -1,4 +1,4 @@
-package com.qa.persitence.repository;
+package com.qa.persistence.repository;
 
 import static javax.transaction.Transactional.TxType.REQUIRED;
 
@@ -9,7 +9,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
-import com.qa.persitence.domain.Stock;
+import com.qa.persistence.domain.Stock;
 import com.qa.util.JSONUtil;
 
 

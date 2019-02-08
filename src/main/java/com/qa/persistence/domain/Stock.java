@@ -1,16 +1,21 @@
-package com.qa.persitence.domain;
+package com.qa.persistence.domain;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Stock {
 	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
-	private Long stockId,productId;
+	private Long stockId;
+	private Long productId;
 	private String supplier, warehouse, location;
 	private int amount;
 	private String lastDeliveryDate, nextDeliveryDate;
+	
 	public Stock() {
 	
 	}

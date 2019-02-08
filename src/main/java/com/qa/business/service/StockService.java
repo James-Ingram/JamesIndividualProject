@@ -2,13 +2,13 @@ package com.qa.business.service;
 
 public interface StockService {
 
-	String createStock(String owner);
+	String createStock(String stock);
 	
 	String getAllStock();
-	String getAStock(Long owner_id);
+	String getAStock(Long stockId);
 	
-	String updateStock(String owner,Long owner_id);
+	String updateStock(String stock,Long stockId);
 	
-	String deleteStock(Long owner_id);
+	String deleteStock(Long stockId);
 	
 }

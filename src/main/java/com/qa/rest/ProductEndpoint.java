@@ -10,8 +10,8 @@ import javax.ws.rs.Produces;
 
 import com.qa.business.service.ProductService;
 
-@Path("/recipe")
-public class RecipeEndpoint {
+@Path("/product")
+public class ProductEndpoint {
 	
 	@Inject
 	private ProductService service;

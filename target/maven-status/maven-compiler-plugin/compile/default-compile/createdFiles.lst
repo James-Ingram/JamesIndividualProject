@@ -1,0 +1,14 @@
+com\qa\persistence\domain\Stock.class
+com\qa\business\service\StockService.class
+com\qa\business\service\ProductService.class
+com\qa\rest\StockEndpoint.class
+com\qa\persistence\repository\ProductRepository.class
+com\qa\persistence\repository\ProductDBRepository.class
+com\qa\persistence\repository\StockDBRepository.class
+com\qa\business\service\StockServiceImpl.class
+com\qa\business\service\ProductServiceImpl.class
+com\qa\persistence\domain\Product.class
+com\qa\util\JSONUtil.class
+com\qa\rest\ProductEndpoint.class
+com\qa\persistence\repository\StockRepository.class
+com\qa\rest\JAXActivator.class
