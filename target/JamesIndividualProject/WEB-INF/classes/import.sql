@@ -1,1 +1,1 @@
-insert into Product values (ID, Description, Msrp, price, productline, productname) values (DEFAULT, 'Standard ring binder, containing descriptive sleeve', 3.00, 2.80, 'Back-To-School', 'Ring Binder')
+insert into Product values (DEFAULT,'Standard ring binder, containing descriptive sleeve', 2.80, 3.00, 'Back-To-School','Ring Binder')
