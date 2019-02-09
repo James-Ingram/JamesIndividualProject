@@ -1,0 +1,61 @@
+body {
+	background-image: url("../images/prism.png");
+	color: white;
+}
+
+nav {
+	padding: 10px;
+	overflow: hidden;
+}
+
+nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #c455f4;
+	border-radius: 32px;
+	border: 1px;
+	border-style: ridge;
+	border-color: black;
+	font-family: Architects Daughter;
+}
+
+nav li {
+	display: inline-flex;
+	justify-content: space-between;
+}
+
+nav li a {
+	color: black;
+	padding: 14px 16px;
+	text-decoration: none;
+	border-right: 0px;
+	border-right-style: ridge;
+	border-color: black;
+	border-left: 0px;
+	border-left-style: ridge;
+	border-color: black;
+}
+
+nav li a:hover:not (.active ) {
+	background-color: #5592f4;
+	border-radius: 32px;
+	border: 1px;
+}
+
+.active {
+	background-color: #5592f4;
+	border-radius: 32px;
+	border: 1px;
+}
+
+h1 {
+	font-family: Architects Daughter;
+	text-align: center;
+}
+
+button
+{
+	
+}
