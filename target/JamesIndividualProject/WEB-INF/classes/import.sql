@@ -5,3 +5,8 @@ insert into Product values (DEFAULT,'Classic scientific Calculator', 11.54, 12.0
 insert into Product values (DEFAULT,'Packet Of 12 Pens', 1.50, 4.00, 'Back-To-School','12 Ball-Point Pens')
 
 insert into stock values (DEFAULT, 16,'2019-02-04','Manchester','2019-02-11','BigStationaryLtd','Salford')
+insert into stock values (DEFAULT, 16,'2019-02-03','Manchester','2019-02-11','How Are The Applies Corp','Salford')
+insert into stock values (DEFAULT, 16,'2018-03-23','Manchester','2019-02-11','BigStationaryLtd','Salford')
+insert into stock values (DEFAULT, 16,'2019-01-05','Manchester','2019-03-15','Teacher Suppliers Inc','Strettford')
+insert into stock values (DEFAULT, 16,'2019-01-02','Manchester','2019-07-14','Orange Is The New Black Board','Salford')
+insert into stock values (DEFAULT, 16,'2019-02-04','Manchester','2019-02-11','The Office Supplies','Strettford')

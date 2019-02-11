@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.qa</groupId>
   <artifactId>JamesIndividualProject</artifactId>
-  <version>0.1.4-SNAPSHOT</version>
+  <version>0.1.6-SNAPSHOT</version>
 <packaging>war</packaging>
   
   <properties>
