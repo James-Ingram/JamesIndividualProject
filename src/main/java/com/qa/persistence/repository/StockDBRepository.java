@@ -24,15 +24,15 @@ public class StockDBRepository implements StockRepository{
 	@Override
 	@Transactional(REQUIRED)
 	public String createStock(String stock) {
-		Stock anOwner = util.getObjectForJSON(stock, Stock.class);
-		manager.persist(anOwner);
-		return "{\"message\": \"owner has been added\"}";
+		Stock aStockItem = util.getObjectForJSON(stock, Stock.class);
+		manager.persist(aStockItem);
+		return "{\"message\": \"Item has been added\"}";
 	}
 
 	@Override
 	
 	public String getAllStock() {
-		Query query = manager.createQuery("Select a FROM Owner a");
+		Query query = manager.createQuery("Select a FROM Stock a");
 		Collection<Stock> stockItems = (Collection<Stock>) query.getResultList();
 		
 		return util.getJSONForObject(stockItems);
@@ -57,7 +57,7 @@ public class StockDBRepository implements StockRepository{
 
 			manager.remove(manager.find(Stock.class, stockId));
 		}
-		return "{\"message\": \"Stock Item sucessfully deleted\"}";
+		return "{\"message\": \"Stock Item Sucessfully Deleted\"}";
 	}
 
 	public void setManager(EntityManager manager) {

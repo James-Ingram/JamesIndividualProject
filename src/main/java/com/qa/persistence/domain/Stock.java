@@ -11,7 +11,6 @@ public class Stock {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private Long stockId;
-	private Long productId;
 	private String supplier, warehouse, location;
 	private int amount;
 	private String lastDeliveryDate, nextDeliveryDate;
@@ -20,9 +19,8 @@ public class Stock {
 	
 	}
 	
-	public Stock(Long stockId, Long productId, String supplier, String warehouse, String location, int amount) {
+	public Stock(Long stockId, String supplier, String warehouse, String location, int amount) {
 		this.stockId = stockId;
-		this.productId = productId;
 		this.supplier = supplier;
 		this.warehouse = warehouse;
 		this.location = location;
@@ -34,12 +32,6 @@ public class Stock {
 	}
 	public void setStockId(Long stockId) {
 		this.stockId = stockId;
-	}
-	public Long getProductId() {
-		return productId;
-	}
-	public void setProductId(Long productId) {
-		this.productId = productId;
 	}
 	public String getSupplier() {
 		return supplier;
