@@ -1,5 +1,3 @@
-
-
 function getAllProducts()
 {
 	var response = document.getElementById('productsOut')
@@ -7,8 +5,8 @@ function getAllProducts()
 	xhr.withcredentials=true;
     xhr.open("GET", "http://localhost:8080/JamesIndividualProject/api/product/getAllProducts");
     xhr.onload = () => {
-    var returnJSON =JSON.parse(xhr.response);
-    response.innerHTML = beautifyProduct(returnJSON);
+    	var returnJSON =JSON.parse(xhr.response);
+    	response.innerHTML = beautifyProduct(returnJSON);
     }
     xhr.send();
 }
