@@ -38,7 +38,24 @@
 	<script type="text/javascript" src="resources/scripts/productCRUD.js"></script>
 	<div id="productSelect" class="hidden">
 		What Do You Want To <span style="color: lime">Find</span>?
+
+	<div>
+	Find The Product Where the 
+	<select id="productOptions">
+		<option value="">productId</option>
+<!-- 		<option value="">description</option> -->
+<!-- 		<option value="">price</option> -->
+<!-- 		<option value="">mSRP</option> -->
+<!-- 		<option value="">productLine</option> -->
+<!-- 		<option value="">productName</option> -->
+		</select>
+		 Matches 
+		 <input id="productFindInput" type="text" maxlength="20" />
+		 <button id="button" type="button"
+					onclick="findProduct();">Submit</button>
+		</div> 
 	</div>
+
 	<div id="productUpdate" class="hidden">
 		What Do You Want To <span style="color: #ffff00">Update</span>?
 	</div>

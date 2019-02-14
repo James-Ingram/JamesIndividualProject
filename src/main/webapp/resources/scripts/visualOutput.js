@@ -16,7 +16,8 @@ function beautifyProduct(object) {
 function beautifyStock(object) {
 	let outputString = "";
 	for (var i = 0; i < object.length; i++) {
-		outputString += '<div>' + "Stock Id: "+ JSON.stringify(object[i].stockId) + '<br>'
+		outputString += '<div>' + "Stock Id: "
+				+ JSON.stringify(object[i].stockId) + '<br>'
 				+ "Supplier:          " + JSON.stringify(object[i].supplier)
 				+ '<br>' + "Warehouse:         "
 				+ JSON.stringify(object[i].warehouse) + '<br>'
@@ -64,23 +65,21 @@ function showOptions(tagName) {
 		else {
 			stockDel.style.display = "block";
 		}
-	}
-		else if (tagName === "updateProduct") {
-			var prodUpdate = document.getElementById('productUpdate');
+	} else if (tagName === "updateProduct") {
+		var prodUpdate = document.getElementById('productUpdate');
 
-			if (prodUpdate.style.display === "block")
-				prodUpdate.style.display = "none";
-			else {
-				prodUpdate.style.display = "block";
-			}
-	}
-		else if (tagName === "updateStock") {
-			var stockUpdate = document.getElementById('stockUpdate');
+		if (prodUpdate.style.display === "block")
+			prodUpdate.style.display = "none";
+		else {
+			prodUpdate.style.display = "block";
+		}
+	} else if (tagName === "updateStock") {
+		var stockUpdate = document.getElementById('stockUpdate');
 
-			if (stockUpdate.style.display === "block")
-				stockUpdate.style.display = "none";
-			else {
-				stockUpdate.style.display = "block";
-			}
+		if (stockUpdate.style.display === "block")
+			stockUpdate.style.display = "none";
+		else {
+			stockUpdate.style.display = "block";
+		}
 	}
 }

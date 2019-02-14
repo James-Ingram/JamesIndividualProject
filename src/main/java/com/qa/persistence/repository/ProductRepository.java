@@ -6,7 +6,7 @@ public interface ProductRepository {
 	String createProduct(String product);
 	//R
 	String getAllProducts();
-	String getAProduct(Long id);
+	String getAProduct(String option,String contains);
 	//U
 	String updateProduct(String product, Long id);
 	//D

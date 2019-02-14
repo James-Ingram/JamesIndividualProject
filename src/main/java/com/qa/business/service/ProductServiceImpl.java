@@ -20,8 +20,8 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public String getAProduct(Long productId) {
-		return repo.getAProduct(productId);
+	public String getAProduct(String option, String contains) {
+		return repo.getAProduct(option,contains);
 	}
 
 	@Override

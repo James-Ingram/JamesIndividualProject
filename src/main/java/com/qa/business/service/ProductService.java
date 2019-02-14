@@ -6,7 +6,7 @@ public interface ProductService {
 	String createProduct(String product);
 	//R
 	String getAllProducts();
-	String getAProduct(Long productId);
+	String getAProduct(String productId, String contains);
 	//U
 	String updateProduct(String product, Long id);
 	//D
