@@ -52,7 +52,7 @@ public class StockDBRepository implements StockRepository{
 	@Override
 	@Transactional(REQUIRED)
 	public String deleteStock(Long stockId) {
-		Stock stockInDB = util.getObjectForJSON(getAStock(stockId), Stock.class);
+		//Stock stockInDB = util.getObjectForJSON(getAStock(stockId), Stock.class);
 		if (manager.contains(manager.find(Stock.class, stockId))) {
 
 			manager.remove(manager.find(Stock.class, stockId));
