@@ -4,7 +4,9 @@
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="resources/css/stylesheet.css">
-<script src="resources/scripts/requests.js"></script>
+
+<script type="text/javascript" src="resources/scripts/visualOutput.js"></script>
+<script type="text/javascript" src="resources/scripts/productCRUD.js"></script>
 <link href='https://fonts.googleapis.com/css?family=Architects Daughter'
 	rel='stylesheet'>
 </head>
@@ -19,22 +21,52 @@
 	</nav>
 	<nav>
 		<ul id="options">
-		<li></li>
+			<li></li>
 			<li><button id="button" type="button"
 					onclick="getAllProducts();">List All Products</button></li>
 			<li><button id="button" type="button"
-					onclick="showFindOption();">Find A Product</button></li>
-			<li><button id="button" type="button" onclick="showDeleteOption();">Delete A Product</button></li>
-			<li><button id="button" type="button" onclick="showUpdateOption();">Update A Product</button></li>
+					onclick="showOptions('findProduct');">Find A Product</button></li>
+			<li><button id="button" type="button"
+					onclick="showOptions('updateProduct');">Update A Product</button></li>
+			<li><button id="button" type="button"
+					onclick="showOptions('deleteProduct');">Delete A Product</button></li>
+
 			<li></li>
 		</ul>
 	</nav>
-	<div id="outputContainer">
-	<output id="productsOut"></output>
-	
+	<script type="text/javascript" src="resources/scripts/visualOutput.js"></script>
+	<script type="text/javascript" src="resources/scripts/productCRUD.js"></script>
+	<div id="productSelect" class="hidden">
+		What Do You Want To <span style="color: lime">Find</span>?
+
+	<div>
+	Find The Product Where the 
+	<select id="productOptions">
+		<option value="">productId</option>
+<!-- 		<option value="">description</option> -->
+<!-- 		<option value="">price</option> -->
+<!-- 		<option value="">mSRP</option> -->
+<!-- 		<option value="">productLine</option> -->
+<!-- 		<option value="">productName</option> -->
+		</select>
+		 Matches 
+		 <input id="productFindInput" type="text" maxlength="20" />
+		 <button id="button" type="button"
+					onclick="findProduct();">Submit</button>
+		</div> 
 	</div>
 
-	<script type="resources/scripts/requests.js"></script>
+	<div id="productUpdate" class="hidden">
+		What Do You Want To <span style="color: #ffff00">Update</span>?
+	</div>
+	<div id="productDelete" class="hidden">
+		What Do You Want To <span style="color: red">Delete</span>?
+	</div>
+	<div id="outputContainer">
+		<output id="productsOut"></output>
+	</div>
+
+
 </body>
 
 </html>
