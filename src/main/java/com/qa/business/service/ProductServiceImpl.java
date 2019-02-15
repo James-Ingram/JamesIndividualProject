@@ -3,11 +3,13 @@ package com.qa.business.service;
 import javax.inject.Inject;
 
 import com.qa.persistence.repository.ProductRepository;
+import com.qa.util.JSONUtil;
 
 public class ProductServiceImpl implements ProductService{
 	
 	@Inject
 	private ProductRepository repo;
+	private JSONUtil util;
 	
 	@Override
 	public String createProduct(String product) {
@@ -32,6 +34,14 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public String deleteProduct(Long id) {
 		return repo.deleteProduct(id);
+	}
+
+	public void setRepo(ProductRepository repo2) {
+		this.repo = repo2;
+	}
+
+	public void setUtil(JSONUtil util) {
+		this.util = util;
 	}
 
 }

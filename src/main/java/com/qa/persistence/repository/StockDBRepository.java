@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
+import com.qa.persistence.domain.Product;
 import com.qa.persistence.domain.Stock;
 import com.qa.util.JSONUtil;
 
@@ -39,11 +40,6 @@ public class StockDBRepository implements StockRepository{
 	}
 
 	@Override
-	public String getAStock(Long stockId) {
-		return util.getJSONForObject(manager.find(Stock.class, stockId));
-	}
-
-	@Override
 	public String updateStock(String stock, Long stock_id) {
 		// TODO Auto-generated method stub
 		return null;
@@ -65,6 +61,13 @@ public class StockDBRepository implements StockRepository{
 	}
 	public void setUtil(JSONUtil util) {
 		this.util = util;
+	}
+
+	@Override
+	public String getAStock(String option, String contains) {
+		Query query = manager.createQuery("Select a FROM Stock a where " + option + "="+contains);
+		Collection<Product> stocks = (Collection<Product>) query.getResultList();
+		return util.getJSONForObject(stocks);
 	}
 	
 

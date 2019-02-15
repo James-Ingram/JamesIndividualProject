@@ -12,41 +12,43 @@ import com.qa.business.service.StockService;
 
 @Path("/stock")
 public class StockEndpoint {
-
+	
 	@Inject
 	private StockService service;
 	
-	@Path("/getAllStock")
+	@Path("/getAllStocks")
 	@GET
-	@Produces({ "application/json" })
-	public String getAllStock()
-	{
+	@Produces({"application/json"})
+	public String getAllStock() {
 		return service.getAllStock();
 	}
 	
-	@Path("/getAStock/{id}")
+	@Path("/getAStock/{option}/{contain}")
 	@GET
-	@Produces({ "application/json" })
-	public String getAStock(@PathParam("stockId") Long stockId) {
-		return service.getAStock(stockId);
+	@Produces({"application/json"})
+	public String getAStock(@PathParam("option") String option, @PathParam("contain") String contains)
+	{
+		return service.getAStock(option, contains);
 	}
-
+	
 	@Path("/createStock")
 	@POST
-	@Produces({ "application/json" })
-	public String addStock(String stock) {
-		return service.createStock(stock);
+	@Produces({"application/json"})
+	public String createStock(String recipe)
+	{
+		return service.createStock(recipe);
 	}
-
-	@Path("/deleteOwner/{owner_id}")
+	
+	@Path("/deleteStock/{id}")
 	@DELETE
-	@Produces({ "application/json" })
-	public String deleteStock(@PathParam("stockId") Long stockId) {
-		return service.deleteStock(stockId);
+	@Produces({"application/json"})
+	public String deleteStock(@PathParam("id") Long id)
+	{
+		return service.deleteStock(id);
 	}
-
+	
 	public void setService(StockService service) {
 		this.service = service;
 	}
-
+	
 }

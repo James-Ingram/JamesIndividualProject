@@ -5,9 +5,10 @@ public interface StockRepository {
 String createStock(String stock);
 	
 	String getAllStock();
-	String getAStock(Long stockId);
 	
 	String updateStock(String stock,Long stockId);
 	
 	String deleteStock(Long stock);
+
+	String getAStock(String option, String contains);
 }
