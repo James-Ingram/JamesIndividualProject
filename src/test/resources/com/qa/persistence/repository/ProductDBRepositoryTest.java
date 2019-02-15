@@ -65,6 +65,7 @@ public class ProductDBRepositoryTest {
 	public void testDeleteProduct() {
 		String reply = repo.deleteProduct(1L);
 		Assert.assertEquals(reply, "{\"message\": \"Product sucessfully deleted\"}");
+		Mockito.verify(repo).deleteProduct(1L);
 	}
 	@Ignore
 	@Test

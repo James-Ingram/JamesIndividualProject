@@ -48,7 +48,6 @@ public class ProductDBRepository implements ProductRepository {
 	public String deleteProduct(Long id) {
 		// Product productInDB = util.getObjectForJSON(getAProduct(id), Product.class);
 		if (manager.contains(manager.find(Product.class, id))) {
-
 			manager.remove(manager.find(Product.class, id));
 		}
 		return "{\"message\": \"Product sucessfully deleted\"}";
