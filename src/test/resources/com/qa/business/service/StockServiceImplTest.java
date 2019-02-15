@@ -64,7 +64,7 @@ public class StockServiceImplTest {
 
 	@Test
 	public void testGetA()	{
-		Mockito.when(repo.getAStock("stockId", "1")).thenReturn(MOCK_OBJECT);
-		assertEquals(MOCK_OBJECT, repo.getAStock("stockId", "1"));
+		Mockito.when(repo.getAStock(1L)).thenReturn(MOCK_OBJECT);
+		assertEquals(MOCK_OBJECT, repo.getAStock(1L));
 	}
 }

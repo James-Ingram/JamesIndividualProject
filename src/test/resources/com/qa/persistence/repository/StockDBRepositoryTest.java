@@ -17,6 +17,7 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.qa.persistence.domain.Stock;
+import com.qa.persistence.domain.Stock;
 import com.qa.persistence.repository.StockDBRepository;
 import com.qa.util.JSONUtil;
 
@@ -33,17 +34,17 @@ public class StockDBRepositoryTest {
 	private Query query;
 
 	private JSONUtil util;
-	
 
-	private static final String MOCK_DATA_ARRAY = "[{\"stockId\":1,\"stockName\":\"Ring Binder\",\"description\":\"Standard ring binder containing descriptive sleeve\",\"stockLine\":\"Back-To-School\",\"price\":3.0,\"mSRP\":2.8}]";
-	private static final String MOCK_SINGLE_ARRAY = "[{\"stockId\":1,\"amount\":0}]";
-	private static final String MOCK_OBJECT = "{\"stockId\":1,\"stockName\":\"Ring Binder\",\"description\":\"Standard ring binder containing descriptive sleeve\",\"stockLine\":\"Back-To-School\",\"price\":3.0,\"mSRP\":2.8}";
+	private static final String MOCK_DATA_ARRAY = "[{\"stockId\":1,\"amount\":0}]";
+	private static final String MOCK_OBJECT = "{\"stockId\":1,\"amount\":0}";
 
 	@Before
 	public void setup() {
 		repo.setManager(manager);
 		util = new JSONUtil();
 		repo.setUtil(util);
+		Stock testStock = util.getObjectForJSON(MOCK_OBJECT, Stock.class);
+		manager.persist(testStock);
 	}
 
 	@Test
@@ -52,7 +53,7 @@ public class StockDBRepositoryTest {
 		List<Stock> stocks = new ArrayList<Stock>();
 		stocks.add(util.getObjectForJSON(MOCK_OBJECT, Stock.class));
 		Mockito.when(query.getResultList()).thenReturn(stocks);
-		Assert.assertEquals(MOCK_SINGLE_ARRAY, repo.getAllStock());
+		Assert.assertEquals(MOCK_DATA_ARRAY, repo.getAllStock());
 	}
 
 	@Test
@@ -66,11 +67,16 @@ public class StockDBRepositoryTest {
 		String reply = repo.deleteStock(1L);
 		Assert.assertEquals(reply, "{\"message\": \"Stock Item Sucessfully Deleted\"}");
 	}
-	
+
 	@Test
 	public void testUpdate() {
-		
+
 	}
-	
+
+	@Test
+	public void testGetAStock() {
+		Mockito.when(manager.find(Stock.class, 1L)).thenReturn(util.getObjectForJSON(MOCK_OBJECT, Stock.class));
+		Assert.assertEquals(MOCK_OBJECT, repo.getAStock(1L));
+	}
 
 }
