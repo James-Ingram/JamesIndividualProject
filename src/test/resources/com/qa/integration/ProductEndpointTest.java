@@ -1,7 +1,6 @@
 package com.qa.integration;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -10,7 +9,6 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.qa.business.service.ProductService;
-import com.qa.persistence.domain.Product;
 import com.qa.rest.ProductEndpoint;
 
 @RunWith(MockitoJUnitRunner.class)

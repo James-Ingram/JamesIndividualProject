@@ -9,6 +9,8 @@ public class ProductServiceImpl implements ProductService{
 	
 	@Inject
 	private ProductRepository repo;
+	
+	@SuppressWarnings("unused")
 	private JSONUtil util;
 	
 	@Override

@@ -28,18 +28,10 @@ function findProduct()
 	var responseText = document.getElementById('productsOut')
 	var userInput = document.getElementById('productFindInput').defaultValue="1".value;
 	var e = document.getElementById('productOptions');
-	var strUser = e.options[e.selectedIndex].text;
 	let xhr = new XMLHttpRequest();
 	xhr.withcredentials=true;
-    xhr.open("GET", "http://localhost:8080/JamesIndividualProject/api/product/getAProduct/"+strUser+"/"+userInput);
+    xhr.open("GET", "http://localhost:8080/JamesIndividualProject/api/product/getAProduct/"+userInput);
     xhr.onload = () => {
-        var returnJSON="";
-        if(xhr.repsponse "{\"Message\":\"InputEmpty\"}")
-        {
-        	returnJSON = "Input Invalid";
-        }
-        else
-        {
         	returnJSON=JSON.parse(xhr.response);
         	console.log(returnJSON);
         	responseText.innerHTML=beautifyProduct(returnJSON);

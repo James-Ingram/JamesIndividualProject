@@ -1,7 +1,6 @@
 package com.qa.persistence.repository;
 
 import static javax.transaction.Transactional.TxType.REQUIRED;
-import static org.junit.Assert.assertEquals;
 
 import java.util.Collection;
 import javax.inject.Inject;
@@ -10,7 +9,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
-import com.qa.persistence.domain.Stock;
 import com.qa.persistence.domain.Stock;
 import com.qa.util.JSONUtil;
 
@@ -31,8 +29,8 @@ public class StockDBRepository implements StockRepository{
 		return "{\"message\": \"Item has been added\"}";
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	
 	public String getAllStock() {
 		Query query = manager.createQuery("Select a FROM Stock a");
 		Collection<Stock> stockItems = (Collection<Stock>) query.getResultList();

@@ -10,7 +10,6 @@ import javax.persistence.Query;
 
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -39,7 +38,6 @@ public class ProductDBRepositoryTest {
 
 	private static final String MOCK_DATA_ARRAY = "[{\"productId\":1,\"productName\":\"Ring Binder\",\"description\":\"Standard ring binder containing descriptive sleeve\",\"productLine\":\"Back-To-School\",\"price\":3.0,\"mSRP\":2.8}]";
 	private static final String MOCK_RESPONSE = "Done";
-	private static final String MOCK_OPTION = "productId";
 	private static final String MOCK_OBJECT = "{\"productId\":1,\"productName\":\"Ring Binder\",\"description\":\"Standard ring binder containing descriptive sleeve\",\"productLine\":\"Back-To-School\",\"price\":3.0,\"mSRP\":2.8}";
 
 	@Before

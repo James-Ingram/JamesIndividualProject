@@ -2,8 +2,6 @@ package com.qa.business.service;
 
 import static org.junit.Assert.assertEquals;
 
-import javax.xml.ws.Service;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

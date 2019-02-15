@@ -10,7 +10,6 @@ import javax.persistence.Query;
 
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -18,7 +17,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import com.qa.persistence.domain.Stock;
 import com.qa.persistence.domain.Stock;
 import com.qa.persistence.repository.StockDBRepository;
 import com.qa.util.JSONUtil;

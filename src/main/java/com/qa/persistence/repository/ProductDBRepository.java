@@ -28,8 +28,10 @@ public class ProductDBRepository implements ProductRepository {
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public String getAllProducts() {
 		Query query = manager.createQuery("Select a FROM Product a");
+		
 		Collection<Product> products = (Collection<Product>) query.getResultList();
 
 		return util.getJSONForObject(products);
