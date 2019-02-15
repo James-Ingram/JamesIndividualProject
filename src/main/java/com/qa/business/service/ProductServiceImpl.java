@@ -22,8 +22,8 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public String getAProduct(String option, String contains) {
-		return repo.getAProduct(option,contains);
+	public String getAProduct(Long id) {
+		return repo.getAProduct(id);
 	}
 
 	@Override

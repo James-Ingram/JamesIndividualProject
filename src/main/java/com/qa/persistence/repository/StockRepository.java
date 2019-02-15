@@ -10,5 +10,5 @@ String createStock(String stock);
 	
 	String deleteStock(Long stock);
 
-	String getAStock(String option, String contains);
+	String getAStock(Long id);
 }

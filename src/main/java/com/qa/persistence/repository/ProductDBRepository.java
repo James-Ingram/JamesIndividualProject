@@ -35,24 +35,29 @@ public class ProductDBRepository implements ProductRepository {
 		return util.getJSONForObject(products);
 
 	}
-
+	
 	@Override
-	public String getAProduct(String option, String contains) {
-			Query query = manager.createQuery("Select a FROM Product a where " + option + "="+contains);
-			Collection<Product> products = (Collection<Product>) query.getResultList();
-			return util.getJSONForObject(products);
+	public String getAProduct(Long id) {
+			return util.getJSONForObject(manager.find(Product.class, id));
 	}
 
 	@Override
 	@Transactional(REQUIRED)
 	public String deleteProduct(Long id) {
-		// Product productInDB = util.getObjectForJSON(getAProduct(id), Product.class);
-		if (manager.contains(manager.find(Product.class, id))) {
-			manager.remove(manager.find(Product.class, id));
-		}
+			manager.remove(manager.find(Product.class,id));
 		return "{\"message\": \"Product sucessfully deleted\"}";
 	}
-
+	
+	@Override
+	public String updateProduct(String product, Long id) {
+		Product temp = new Product();
+		temp = util.getObjectForJSON(product, Product.class);
+		manager.persist(temp);
+		deleteProduct(id);
+		return "Done";
+	}
+	
+	
 	public void setManager(EntityManager manager) {
 		this.manager = manager;
 	}
@@ -61,10 +66,6 @@ public class ProductDBRepository implements ProductRepository {
 		this.util = util;
 	}
 
-	@Override
-	public String updateProduct(String product, Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 
 }

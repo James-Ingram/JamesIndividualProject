@@ -8,7 +8,7 @@ public interface StockService {
 	
 	String updateStock(String stock,Long stockId);
 	
-	String getAStock(String option, String contains);
+	String getAStock(Long id);
 	
 	String deleteStock(Long stockId);
 	
