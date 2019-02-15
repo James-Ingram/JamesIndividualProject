@@ -1,6 +1,7 @@
 package com.qa.persistence.repository;
 
 import static javax.transaction.Transactional.TxType.REQUIRED;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Collection;
 import javax.inject.Inject;
@@ -41,18 +42,13 @@ public class StockDBRepository implements StockRepository{
 
 	@Override
 	public String updateStock(String stock, Long stock_id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	@Transactional(REQUIRED)
 	public String deleteStock(Long stockId) {
-		//Stock stockInDB = util.getObjectForJSON(getAStock(stockId), Stock.class);
-		if (manager.contains(manager.find(Stock.class, stockId))) {
-
 			manager.remove(manager.find(Stock.class, stockId));
-		}
 		return "{\"message\": \"Stock Item Sucessfully Deleted\"}";
 	}
 
