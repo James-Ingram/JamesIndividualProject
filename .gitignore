@@ -1,6 +1,6 @@
 /.metadata/
 /.recommenders/
-/target/
+/target/*
 /.settings/
 .classpath
 .project
@@ -9,3 +9,4 @@
 *.class
 *.class
 *.class
+target/
