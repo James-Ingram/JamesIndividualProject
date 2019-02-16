@@ -16,7 +16,7 @@ public class StockEndpoint {
 	@Inject
 	private StockService service;
 	
-	@Path("/getAllStocks")
+	@Path("/getAllStock")
 	@GET
 	@Produces({"application/json"})
 	public String getAllStock() {

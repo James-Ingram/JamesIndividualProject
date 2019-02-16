@@ -26,12 +26,10 @@ public class ProductDBRepository implements ProductRepository {
 		manager.persist(aProduct);
 		return "{\"message\": \"Product has been added\"}";
 	}
-
-	@Override
 	@SuppressWarnings("unchecked")
+	@Override
 	public String getAllProducts() {
 		Query query = manager.createQuery("Select a FROM Product a");
-		
 		Collection<Product> products = (Collection<Product>) query.getResultList();
 
 		return util.getJSONForObject(products);

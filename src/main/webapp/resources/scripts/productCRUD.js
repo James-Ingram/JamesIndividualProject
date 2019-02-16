@@ -26,7 +26,7 @@ function createProduct()
 function findProduct()
 {
 	var responseText = document.getElementById('productsOut')
-	var userInput = document.getElementById('productFindInput').defaultValue="1".value;
+	var userInput = document.getElementById('productFindInput').defaultValue="1".text;
 	var e = document.getElementById('productOptions');
 	let xhr = new XMLHttpRequest();
 	xhr.withcredentials=true;
