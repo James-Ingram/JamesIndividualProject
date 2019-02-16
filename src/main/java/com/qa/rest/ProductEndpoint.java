@@ -23,12 +23,12 @@ public class ProductEndpoint {
 		return service.getAllProducts();
 	}
 	
-	@Path("/getAProduct/{option}/{contain}")
+	@Path("/getAProduct/{id}")
 	@GET
 	@Produces({"application/json"})
-	public String getAProduct(@PathParam("option") String option, @PathParam("contain") String contains)
+	public String getAProduct(@PathParam("id") Long id)
 	{
-		return service.getAProduct(option, contains);
+		return service.getAProduct(id);
 	}
 	
 	@Path("/createProduct")

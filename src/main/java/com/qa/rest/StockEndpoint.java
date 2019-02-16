@@ -16,19 +16,19 @@ public class StockEndpoint {
 	@Inject
 	private StockService service;
 	
-	@Path("/getAllStocks")
+	@Path("/getAllStock")
 	@GET
 	@Produces({"application/json"})
 	public String getAllStock() {
 		return service.getAllStock();
 	}
 	
-	@Path("/getAStock/{option}/{contain}")
+	@Path("/getAStock/{id}")
 	@GET
 	@Produces({"application/json"})
-	public String getAStock(@PathParam("option") String option, @PathParam("contain") String contains)
+	public String getAStock(@PathParam("id") Long id)
 	{
-		return service.getAStock(option, contains);
+		return service.getAStock(id);
 	}
 	
 	@Path("/createStock")

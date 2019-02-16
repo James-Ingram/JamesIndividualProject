@@ -36,6 +36,11 @@
 	<script type="resources/scripts/stockCRUD.js"></script>
 	<div id="stockSelect" class="hidden">
 		What Do You Want To <span style="color: lime">Find</span>?
+
+		<div>
+			Find The Stock Where the stockId Matches <input id="stockFindInput" type="text" maxlength="20" />
+			<button id="button" type="button" onclick="findStock();">Submit</button>
+		</div>
 	</div>
 	<div id="stockUpdate" class="hidden">
 		What Do You Want To <span style="color: #ffff00">Update</span>?

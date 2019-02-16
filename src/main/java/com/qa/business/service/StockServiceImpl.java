@@ -39,8 +39,8 @@ public class StockServiceImpl implements StockService{
 	} 
 
 	@Override
-	public String getAStock(String option, String contains) {
-		return repo.getAStock(option, contains);
+	public String getAStock(Long id) {
+		return repo.getAStock(id);
 	}
 	
 	

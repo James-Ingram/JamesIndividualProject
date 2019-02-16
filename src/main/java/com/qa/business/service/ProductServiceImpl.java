@@ -9,6 +9,8 @@ public class ProductServiceImpl implements ProductService{
 	
 	@Inject
 	private ProductRepository repo;
+	
+	@SuppressWarnings("unused")
 	private JSONUtil util;
 	
 	@Override
@@ -22,8 +24,8 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public String getAProduct(String option, String contains) {
-		return repo.getAProduct(option,contains);
+	public String getAProduct(Long id) {
+		return repo.getAProduct(id);
 	}
 
 	@Override

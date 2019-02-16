@@ -1,5 +1,7 @@
 package com.qa.persistence.repository;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +10,6 @@ import javax.persistence.Query;
 
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -36,7 +37,7 @@ public class ProductDBRepositoryTest {
 	
 
 	private static final String MOCK_DATA_ARRAY = "[{\"productId\":1,\"productName\":\"Ring Binder\",\"description\":\"Standard ring binder containing descriptive sleeve\",\"productLine\":\"Back-To-School\",\"price\":3.0,\"mSRP\":2.8}]";
-
+	private static final String MOCK_RESPONSE = "Done";
 	private static final String MOCK_OBJECT = "{\"productId\":1,\"productName\":\"Ring Binder\",\"description\":\"Standard ring binder containing descriptive sleeve\",\"productLine\":\"Back-To-School\",\"price\":3.0,\"mSRP\":2.8}";
 
 	@Before
@@ -44,6 +45,8 @@ public class ProductDBRepositoryTest {
 		repo.setManager(manager);
 		util = new JSONUtil();
 		repo.setUtil(util);
+		Product testProduct = util.getObjectForJSON(MOCK_OBJECT, Product.class);
+		manager.persist(testProduct);
 	}
 
 	@Test
@@ -65,12 +68,18 @@ public class ProductDBRepositoryTest {
 	public void testDeleteProduct() {
 		String reply = repo.deleteProduct(1L);
 		Assert.assertEquals(reply, "{\"message\": \"Product sucessfully deleted\"}");
-		Mockito.verify(repo).deleteProduct(1L);
+
 	}
-	@Ignore
 	@Test
 	public void testUpdate() {
+		assertEquals(MOCK_RESPONSE,repo.updateProduct(MOCK_OBJECT, 1L));
 	}
 	
+	@Test
+	public void testGetAProduct()
+	{
+		Mockito.when(manager.find(Product.class,1L)).thenReturn(util.getObjectForJSON(MOCK_OBJECT,Product.class));
+		Assert.assertEquals(MOCK_OBJECT,repo.getAProduct(1L));
+	}
 
 }

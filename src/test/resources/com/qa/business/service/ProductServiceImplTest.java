@@ -2,8 +2,6 @@ package com.qa.business.service;
 
 import static org.junit.Assert.assertEquals;
 
-import javax.xml.ws.Service;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -62,7 +60,7 @@ public class ProductServiceImplTest {
 	}
 	@Test
 	public void testGetA()	{
-		Mockito.when(repo.getAProduct("productId", "1")).thenReturn(MOCK_OBJECT);
-		assertEquals(MOCK_OBJECT, repo.getAProduct("productId", "1"));
+		Mockito.when(repo.getAProduct(1L)).thenReturn(MOCK_OBJECT);
+		assertEquals(MOCK_OBJECT, repo.getAProduct(1L));
 	}
 }

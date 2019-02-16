@@ -1,7 +1,6 @@
 package com.qa.integration;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -32,14 +31,14 @@ public class ProductEndpointTest {
 
 	@Test
 	
-	public void testGetAllMovies() {
+	public void testGetAllProducts() {
 		Mockito.when(service.getAllProducts()).thenReturn(MOCK_VALUE);
 		Assert.assertEquals(MOCK_VALUE, endpoint.getAllProducts());
 	}
 
 	@Test
 	
-	public void testCreateMovie() {
+	public void testCreateProduct() {
 		Mockito.when(service.createProduct(MOCK_VALUE2)).thenReturn(MOCK_VALUE);
 		Assert.assertEquals(MOCK_VALUE, endpoint.createProduct(MOCK_VALUE2));
 		Mockito.verify(service).createProduct(MOCK_VALUE2);
@@ -47,10 +46,17 @@ public class ProductEndpointTest {
 
 	@Test
 	
-	public void testDeleteMovie() {
+	public void testDeleteProduct() {
 		Mockito.when(service.deleteProduct(1L)).thenReturn(MOCK_VALUE);
 		Assert.assertEquals(MOCK_VALUE, endpoint.deleteProduct(1L));
 		Mockito.verify(service).deleteProduct(1L);
+	}
+	
+	@Test
+	public void testGetAProduct() {
+		Mockito.when(service.getAProduct(1L)).thenReturn(MOCK_VALUE);
+		Assert.assertEquals(MOCK_VALUE,service.getAProduct(1L));
+		Mockito.verify(service).getAProduct(1L);
 	}
 
 }
