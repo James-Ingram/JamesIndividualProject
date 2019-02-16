@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
+import com.qa.persistence.domain.Product;
 import com.qa.persistence.domain.Stock;
 import com.qa.util.JSONUtil;
 
@@ -39,8 +40,12 @@ public class StockDBRepository implements StockRepository{
 	}
 
 	@Override
-	public String updateStock(String stock, Long stock_id) {
-		return null;
+	public String updateStock(String stock, Long id) {
+		Stock temp = new Stock();
+		temp = util.getObjectForJSON(stock, Stock.class);
+		manager.persist(temp);
+		deleteStock(id);
+		return "Done";
 	}
 
 	@Override
