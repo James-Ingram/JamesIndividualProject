@@ -85,7 +85,7 @@ public class ProductDBRepositoryTest {
 	@Test
 	public void testDomain()
 	{
-		Product fullTest = new Product(1L, MOCK_RESPONSE, MOCK_RESPONSE, MOCK_RESPONSE, 2.0F, 2.0F);
+		Product fullTest = new Product(MOCK_RESPONSE, MOCK_RESPONSE, MOCK_RESPONSE, 2.0F, 2.0F);
 		Product domainTest = new Product();
 		domainTest.setDescription(MOCK_RESPONSE);
 		domainTest.setmSRP(2.0F);
