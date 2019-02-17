@@ -17,6 +17,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import com.qa.persistence.domain.Product;
 import com.qa.persistence.domain.Stock;
 import com.qa.persistence.repository.StockDBRepository;
 import com.qa.util.JSONUtil;
@@ -37,6 +38,7 @@ public class StockDBRepositoryTest {
 
 	private static final String MOCK_DATA_ARRAY = "[{\"stockId\":1,\"amount\":0}]";
 	private static final String MOCK_OBJECT = "{\"stockId\":1,\"amount\":0}";
+	private static final String MOCK_RESPONSE = "Done";
 
 
 	@Before
@@ -78,6 +80,26 @@ public class StockDBRepositoryTest {
 	public void testGetAStock() {
 		Mockito.when(manager.find(Stock.class, 1L)).thenReturn(util.getObjectForJSON(MOCK_OBJECT, Stock.class));
 		Assert.assertEquals(MOCK_OBJECT, repo.getAStock(1L));
+	}
+	
+	@Test
+	public void testDomain()
+	{
+		Stock fullTest = new Stock(1L, MOCK_RESPONSE, MOCK_RESPONSE, MOCK_RESPONSE, 1);
+		Stock domainTest = new Stock();
+		domainTest.setLocation(MOCK_RESPONSE);
+		domainTest.setAmount(2);
+		domainTest.setLastDeliveryDate(MOCK_RESPONSE);
+		domainTest.setStockId(1L);
+		domainTest.setNextDeliveryDate(MOCK_RESPONSE);
+		domainTest.setSupplier(MOCK_RESPONSE);
+		domainTest.getLocation();
+		domainTest.getAmount();
+		domainTest.getLastDeliveryDate();
+		domainTest.getStockId();
+		domainTest.getNextDeliveryDate();
+		domainTest.getSupplier();
+		Assert.assertEquals(fullTest,fullTest);
 	}
 
 }
