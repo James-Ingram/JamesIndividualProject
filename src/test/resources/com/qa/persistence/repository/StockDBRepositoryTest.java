@@ -37,7 +37,7 @@ public class StockDBRepositoryTest {
 
 	private static final String MOCK_DATA_ARRAY = "[{\"stockId\":1,\"amount\":0}]";
 	private static final String MOCK_OBJECT = "{\"stockId\":1,\"amount\":0}";
-	private static final String MOCK_RESPONSE = "Done";
+
 
 	@Before
 	public void setup() {
