@@ -107,5 +107,21 @@ function showOptions(tagName) {
 		else {
 			stockUpdate.style.display = "block";
 		}
+	}else if (tagName === "createProduct") {
+		var prodCreate = document.getElementById('productCreate');
+
+		if (prodCreate.style.display === "block")
+			prodCreate.style.display = "none";
+		else {
+			prodCreate.style.display = "block";
+		}
+	}else if (tagName === "createStock") {
+		var stockUpdate = document.getElementById('stockCreate');
+
+		if (stockUddate.style.display === "block")
+			stockUpdate.style.display = "none";
+		else {
+			stockUpdate.style.display = "block";
+		}
 	}
 }
