@@ -30,7 +30,8 @@
 					onclick="showOptions('updateProduct');">Update A Product</button></li>
 			<li><button id="button" type="button"
 					onclick="showOptions('deleteProduct');">Delete A Product</button></li>
-
+			<li><button id="button" type="button"
+					onclick="showOptions('createProduct');">Create A Product</button></li>
 			<li></li>
 		</ul>
 	</nav>
@@ -40,15 +41,9 @@
 		What Do You Want To <span style="color: lime">Find</span>?
 
 		<div>
-			Find The Product Where the <select id="productOptions">
-				<option value="">productId</option>
-				<!-- 		<option value="">description</option> -->
-				<!-- 		<option value="">price</option> -->
-				<!-- 		<option value="">mSRP</option> -->
-				<!-- 		<option value="">productLine</option> -->
-				<!-- 		<option value="">productName</option> -->
-			</select> Matches <input id="productFindInput" type="text" maxlength="20" />
-			<button id="button" type="button" onclick="findProduct();">Submit</button>
+			Find The Product Where the productId Matches <input
+				id="productFindInput" type="text" maxlength="20" />
+			<button id="button" type="button" onclick="findProduct(1);">Submit</button>
 		</div>
 	</div>
 
@@ -57,6 +52,17 @@
 	</div>
 	<div id="productDelete" class="hidden">
 		What Do You Want To <span style="color: red">Delete</span>?
+	</div>
+	<div id="productCreate" class="hidden">
+		What Do You Want To <span style="color: lime">Create</span>?
+		<div>
+			<pre>Product Name: <input id="productNameInput" type="text" maxlength="20" /></pre>
+			<pre>Description:  <input id="productDescInput" type="text" maxlength="20" /></pre>
+			<pre>Product Line: <input id="productLineInput" type="text" maxlength="20" /></pre>
+			<pre>Price:        <input id="produtPriceInput" type="number" maxlength="5" /></pre>
+			<pre>MSRP:         <input id="productMSRPInput" type="number" maxlength="5" /></pre>
+			<button id="button" type="button" onclick="createProduct();">Submit</button>
+		</div>
 	</div>
 	<div id="outputContainer">
 		<output id="productsOut"></output>
