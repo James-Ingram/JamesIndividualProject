@@ -12,6 +12,16 @@ function getAllProducts()
     xhr.send();
 }
 
+function validateCreate(val1,val2,val3,val4,val5)
+{
+	if (val1==null || val1=="" || val2==null || val2==""||val3==null || val3==""||val4==null || val4=="" || val5==null || val5==""){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
 function createProduct()
 {
 	var nameInput = document.getElementById('productNameInput').value;
@@ -19,7 +29,13 @@ function createProduct()
 	var lineInput = document.getElementById('productLineInput').value;
 	var priceInput = document.getElementById('produtPriceInput').value;
 	var mSRPInput = document.getElementById('productMSRPInput').value;
-
+	
+	let check = validateCreate(nameInput, descInput, lineInput, priceInput, mSRPInput);
+ 	if (check)
+        {
+            alert("Please Fill All Required Field");
+            return false;
+        }
 	var concatString ="{\"productName\":" +"\""+nameInput+"\""+   
 	",\"description\":" +"\""+descInput+"\""+ 
 	",\"productLine\":" +"\""+lineInput+"\""+ 
