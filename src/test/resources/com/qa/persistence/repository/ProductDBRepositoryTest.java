@@ -81,5 +81,25 @@ public class ProductDBRepositoryTest {
 		Mockito.when(manager.find(Product.class,1L)).thenReturn(util.getObjectForJSON(MOCK_OBJECT,Product.class));
 		Assert.assertEquals(MOCK_OBJECT,repo.getAProduct(1L));
 	}
+	
+	@Test
+	public void testDomain()
+	{
+		Product fullTest = new Product(1L, MOCK_RESPONSE, MOCK_RESPONSE, MOCK_RESPONSE, 2.0F, 2.0F);
+		Product domainTest = new Product();
+		domainTest.setDescription(MOCK_RESPONSE);
+		domainTest.setmSRP(2.0F);
+		domainTest.setPrice(2.0F);
+		domainTest.setProductId(1L);
+		domainTest.setProductLine(MOCK_RESPONSE);
+		domainTest.setProductName(MOCK_RESPONSE);
+		domainTest.getDescription();
+		domainTest.getmSRP();
+		domainTest.getPrice();
+		domainTest.getProductId();
+		domainTest.getProductLine();
+		domainTest.getProductName();
+		Assert.assertEquals(fullTest,fullTest);
+	}
 
 }
