@@ -118,7 +118,7 @@ function showOptions(tagName) {
 	}else if (tagName === "createStock") {
 		var stockUpdate = document.getElementById('stockCreate');
 
-		if (stockUddate.style.display === "block")
+		if (stockUpdate.style.display === "block")
 			stockUpdate.style.display = "none";
 		else {
 			stockUpdate.style.display = "block";

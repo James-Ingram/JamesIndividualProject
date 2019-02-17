@@ -14,7 +14,11 @@ function getAllProducts()
 
 function validateCreate(val1,val2,val3,val4,val5)
 {
-	if (val1==null || val1=="" || val2==null || val2==""||val3==null || val3==""||val4==null || val4=="" || val5==null || val5==""){
+	if (val1==null || val1=="" || 
+		val2==null || val2=="" ||
+		val3==null || val3=="" ||
+		val4==null || val4=="" || 
+		val5==null || val5==""){
 		return true;
 	}
 	else{
@@ -33,7 +37,7 @@ function createProduct()
 	let check = validateCreate(nameInput, descInput, lineInput, priceInput, mSRPInput);
  	if (check)
         {
-            alert("Please Fill All Required Field");
+            alert("Please Fill All Required Fields");
             return false;
         }
 	var concatString ="{\"productName\":" +"\""+nameInput+"\""+   
