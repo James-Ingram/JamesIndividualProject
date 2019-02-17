@@ -71,7 +71,7 @@ public class StockDBRepositoryTest {
 
 	@Test
 	public void testUpdate() {
-		assertEquals(MOCK_RESPONSE,repo.updateStock(MOCK_OBJECT, 1L));		
+		assertEquals(null,repo.updateStock(MOCK_OBJECT, 1L));		
 	}
 
 	@Test
