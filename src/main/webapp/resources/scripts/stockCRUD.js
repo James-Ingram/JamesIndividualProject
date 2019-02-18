@@ -19,7 +19,7 @@ function validateCreate(val1,val2,val3,val4,val5,val6)
 		val3==null || val3=="" ||
 		val4==null || val4=="" || 
 		val5==null || val5=="" ||
-		val6==null || val5==""){
+		val6==null || val6==""){
 		return true;
 	}
 	else{
@@ -62,7 +62,13 @@ function createStock()
 function findStock()
 {
 	var responseText = document.getElementById('stockOut');
-	var userInput = document.getElementById('stockFindInput').defaultValue="1";
+	var userInput = document.getElementById('stockFindInput').value;
+	if(userInput == null|| userInput=="")
+	{
+		alert("Please Enter A StockId");
+		return false;
+	}
+	
 	let xhr = new XMLHttpRequest();
 	xhr.withcredentials=true;
     xhr.open("GET", "http://localhost:8080/JamesIndividualProject/api/stock/getAStock/"+userInput);

@@ -58,10 +58,16 @@ function createProduct()
 }
 function findProduct(variation)
 {
-	if(variation !== 0)
-		{
-		var responseText = document.getElementById('productsOut');
-		var userInput = document.getElementById('productFindInput').defaultValue="1";
+//	if(variation !== 0)
+//		{
+		var responseText = document.getElementById('productsOut').value;
+		if(responseText == null|| responseText=="")
+			{
+				alert("Please Enter A ProductId");
+				return false;
+			}
+		
+		var userInput = document.getElementById('productFindInput');
 		let xhr = new XMLHttpRequest();
 		xhr.withcredentials=true;
 	    xhr.open("GET", "http://localhost:8080/JamesIndividualProject/api/product/getAProduct/"+userInput);
@@ -70,20 +76,20 @@ function findProduct(variation)
 	        	responseText.innerHTML=beautifyProduct(returnJSON);
 	        }
 	    xhr.send();
-		}
-	else
-		{
-			var responseText = document.getElementById('productsOut');
-			var userInput = document.getElementById('productFindInput').defaultValue="1";
-			let xhr = new XMLHttpRequest();
-			xhr.withcredentials=true;
-		    xhr.open("GET", "http://localhost:8080/JamesIndividualProject/api/product/getAProduct/"+userInput);
-		    xhr.onload = () => {
-		        	var returnJSON=JSON.parse(xhr.response);
-		        	responseText.innerHTML=beautifyProduct(returnJSON);
-		        }
-		    xhr.send();
-		}
+//		}
+//	else
+//		{
+//			var responseText = document.getElementById('productsOut');
+//			var userInput = document.getElementById('productFindInput').defaultValue="1";
+//			let xhr = new XMLHttpRequest();
+//			xhr.withcredentials=true;
+//		    xhr.open("GET", "http://localhost:8080/JamesIndividualProject/api/product/getAProduct/"+userInput);
+//		    xhr.onload = () => {
+//		        	var returnJSON=JSON.parse(xhr.response);
+//		        	responseText.innerHTML=beautifyProduct(returnJSON);
+//		        }
+//		    xhr.send();
+//		}
 	
 }
 function deleteProduct()
