@@ -60,14 +60,15 @@ function findProduct(variation)
 {
 //	if(variation !== 0)
 //		{
-		var responseText = document.getElementById('productsOut').value;
-		if(responseText == null|| responseText=="")
+		var userInput = document.getElementById('productFindInput').value;
+		var responseText = document.getElementById('productsOut');
+		if(userInput== null|| userInput=="")
 			{
 				alert("Please Enter A ProductId");
 				return false;
 			}
 		
-		var userInput = document.getElementById('productFindInput');
+		
 		let xhr = new XMLHttpRequest();
 		xhr.withcredentials=true;
 	    xhr.open("GET", "http://localhost:8080/JamesIndividualProject/api/product/getAProduct/"+userInput);
@@ -95,13 +96,17 @@ function findProduct(variation)
 function deleteProduct()
 {
 	var responseText = document.getElementById('productsOut');
-	var userInput = document.getElementById('productFindInput').defaultValue="1";
+	var userInput = document.getElementById('productDeleteInput').value;
+	if(userInput==null||userInput=="")
+		{
+			alert("Please Fill In The Delete Field");
+			return false;
+		}
 	let xhr = new XMLHttpRequest();
 	xhr.withcredentials=true;
     xhr.open("DELETE", "http://localhost:8080/JamesIndividualProject/api/product/deleteProduct/"+userInput);
     xhr.onload = () => {
-        	var returnJSON=JSON.parse(xhr.response);
-        	responseText.innerHTML=beautifyProduct(returnJSON);
+        	responseText.innerHTML=xhr.response;
         }
     xhr.send();
 }
