@@ -81,7 +81,7 @@ function findStock()
 function deleteStock()
 {
 	var responseText = document.getElementById('stockOut');
-	var userInput = document.getElementById('stockFindInput').defaultValue="1";
+	var userInput = document.getElementById('stockFindInput').value;
 	let xhr = new XMLHttpRequest();
 	xhr.withcredentials=true;
     xhr.open("DELETE", "http://localhost:8080/JamesIndividualProject/api/stock/deleteStock/"+userInput);

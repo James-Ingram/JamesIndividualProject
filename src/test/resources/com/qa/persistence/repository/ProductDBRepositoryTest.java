@@ -61,13 +61,13 @@ public class ProductDBRepositoryTest {
 	@Test
 	public void testCreateProduct() {
 		String reply = repo.createProduct(MOCK_OBJECT);
-		Assert.assertEquals(reply, "{\"message\": \"Product has been added\"}");
+		Assert.assertEquals(reply, "<div>Message: \"Product has been added\"</div>");
 	}
 
 	@Test
 	public void testDeleteProduct() {
 		String reply = repo.deleteProduct(1L);
-		Assert.assertEquals(reply, "{\"message\": \"Product sucessfully deleted\"}");
+		Assert.assertEquals(reply, "<div>Message: \"Product Successfully Deleted\"</div>");
 
 	}
 	@Test

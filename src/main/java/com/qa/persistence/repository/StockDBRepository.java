@@ -26,7 +26,7 @@ public class StockDBRepository implements StockRepository{
 	public String createStock(String stock) {
 		Stock aStockItem = util.getObjectForJSON(stock, Stock.class);
 		manager.persist(aStockItem);
-		return "{\"message\": \"Item has been added\"}";
+		return "<div>Message: \"Stock Item has been added\"</div>";
 	}
 
 	@SuppressWarnings("unchecked")
@@ -47,7 +47,7 @@ public class StockDBRepository implements StockRepository{
 	@Transactional(REQUIRED)
 	public String deleteStock(Long stockId) {
 			manager.remove(manager.find(Stock.class, stockId));
-		return "{\"message\": \"Stock Item Sucessfully Deleted\"}";
+		return "<div>Message: \"Stock Item Successfully Deleted\"</div>";
 	}
 
 	public void setManager(EntityManager manager) {

@@ -24,7 +24,7 @@ public class ProductDBRepository implements ProductRepository {
 	public String createProduct(String product) {
 		Product aProduct = util.getObjectForJSON(product, Product.class);
 		manager.persist(aProduct);
-		return "{\"message\": \"Product has been added\"}";
+		return "<div>Message: \"Product has been added\"</div>";
 	}
 	@SuppressWarnings("unchecked")
 	@Override
@@ -44,8 +44,14 @@ public class ProductDBRepository implements ProductRepository {
 	@Override
 	@Transactional(REQUIRED)
 	public String deleteProduct(Long id) {
-			manager.remove(manager.find(Product.class,id));
-		return "{\"message\": \"Product sucessfully deleted\"}";
+		if(!(manager.find(Product.class,id) instanceof Product))
+		{
+			return "<div>Message: \"Product Could Not Be Found\"</div>";
+		}else {
+		manager.remove(manager.find(Product.class,id));
+		return "<div>Message: \"Product Successfully Deleted\"</div>";
+		}
+		
 	}
 	
 	@Override
