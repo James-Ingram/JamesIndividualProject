@@ -4,7 +4,7 @@ function beautifyProduct(object)
 	let outputString = "";
 	if(object.length>0)
 	{
-	for(var i =0; i<object.length;i++)
+	for(let i =0; i<object.length;i++)
 		{
 		outputString += '<div>'+
 		"Product Id:   "+JSON.stringify(object[i].productId)+'<br>'+
@@ -32,7 +32,7 @@ function beautifyStock(object)
 	let outputString = "";
 	if(object.length>0)
 	{
-	for(var i =0; i<object.length;i++)
+	for(let i =0; i<object.length;i++)
 		{
 		outputString += '<div>'+
 		"Stock Id:          "+JSON.stringify(object[i].stockId)+'<br>'+
@@ -60,7 +60,7 @@ function beautifyStock(object)
 
 function showOptions(tagName) {
 	if (tagName === "findStock") {
-		var stockSelect = document.getElementById('stockSelect');
+		let stockSelect = document.getElementById('stockSelect');
 
 		if (stockSelect.style.display === "block")
 			stockSelect.style.display = "none";
@@ -68,7 +68,7 @@ function showOptions(tagName) {
 			stockSelect.style.display = "block";
 		}
 	} else if (tagName === "findProduct") {
-		var prodSelect = document.getElementById('productSelect');
+		let prodSelect = document.getElementById('productSelect');
 
 		if (prodSelect.style.display === "block")
 			prodSelect.style.display = "none";
@@ -76,7 +76,7 @@ function showOptions(tagName) {
 			prodSelect.style.display = "block";
 		}
 	} else if (tagName === "deleteProduct") {
-		var prodDel = document.getElementById('productDelete');
+		let prodDel = document.getElementById('productDelete');
 
 		if (prodDel.style.display === "block")
 			prodDel.style.display = "none";
@@ -84,7 +84,7 @@ function showOptions(tagName) {
 			prodDel.style.display = "block";
 		}
 	} else if (tagName === "deleteStock") {
-		var stockDel = document.getElementById('stockDelete');
+		let stockDel = document.getElementById('stockDelete');
 
 		if (stockDel.style.display === "block")
 			stockDel.style.display = "none";
@@ -92,7 +92,7 @@ function showOptions(tagName) {
 			stockDel.style.display = "block";
 		}
 	} else if (tagName === "updateProduct") {
-		var prodUpdate = document.getElementById('productUpdate');
+		let prodUpdate = document.getElementById('productUpdate');
 
 		if (prodUpdate.style.display === "block")
 			prodUpdate.style.display = "none";
@@ -100,7 +100,7 @@ function showOptions(tagName) {
 			prodUpdate.style.display = "block";
 		}
 	} else if (tagName === "updateStock") {
-		var stockUpdate = document.getElementById('stockUpdate');
+		let stockUpdate = document.getElementById('stockUpdate');
 
 		if (stockUpdate.style.display === "block")
 			stockUpdate.style.display = "none";
@@ -108,7 +108,7 @@ function showOptions(tagName) {
 			stockUpdate.style.display = "block";
 		}
 	}else if (tagName === "createProduct") {
-		var prodCreate = document.getElementById('productCreate');
+		let prodCreate = document.getElementById('productCreate');
 
 		if (prodCreate.style.display === "block")
 			prodCreate.style.display = "none";
@@ -116,7 +116,7 @@ function showOptions(tagName) {
 			prodCreate.style.display = "block";
 		}
 	}else if (tagName === "createStock") {
-		var stockUpdate = document.getElementById('stockCreate');
+		let stockUpdate = document.getElementById('stockCreate');
 
 		if (stockUpdate.style.display === "block")
 			stockUpdate.style.display = "none";

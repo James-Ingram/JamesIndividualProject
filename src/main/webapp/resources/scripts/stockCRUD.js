@@ -1,12 +1,12 @@
-"use strict";
+'use strict';
 function getAllStock()
 {
-	var response = document.getElementById('stockOut');
+	let response = document.getElementById('stockOut');
 	let xhr = new XMLHttpRequest();
 	xhr.withcredentials=true;
     xhr.open("GET", "http://localhost:8080/JamesIndividualProject/api/stock/getAllStock");
     xhr.onload = () => {
-    	var returnJSON =JSON.parse(xhr.response);
+    	let returnJSON =JSON.parse(xhr.response);
     	response.innerHTML = beautifyStock(returnJSON);
     }
     xhr.send();
@@ -29,12 +29,12 @@ function validateCreate(val1,val2,val3,val4,val5,val6)
 
 function createStock()
 {
-	var supplierInput = document.getElementById('stockSupplierInput').value;
-	var warehouseInput = document.getElementById('stockWarehouseInput').value;
-	var locationInput = document.getElementById('stockLocationInput').value;
-	var amountInput = document.getElementById('stockAmountInput').value;
-	var lastDateInput = document.getElementById('stockLastDateInput').value;
-	var nextDateInput = document.getElementById('stockNextDateInput').value;
+	let supplierInput = document.getElementById('stockSupplierInput').value;
+	let warehouseInput = document.getElementById('stockWarehouseInput').value;
+	let locationInput = document.getElementById('stockLocationInput').value;
+	let amountInput = document.getElementById('stockAmountInput').value;
+	let lastDateInput = document.getElementById('stockLastDateInput').value;
+	let nextDateInput = document.getElementById('stockNextDateInput').value;
 	
 	let check = validateCreate(supplierInput, warehouseInput, locationInput, amountInput, lastDateInput,nextDateInput);
  	if (check)
@@ -42,18 +42,18 @@ function createStock()
             alert("Please Fill All Required Fields");
             return false;
         }
-	var concatString ="{\"supplier\":" +"\""+supplierInput+"\""+   
+	let concatString ="{\"supplier\":" +"\""+supplierInput+"\""+   
 	",\"warehouse\":" +"\""+warehouseInput+"\""+ 
 	",\"location\":" +"\""+locationInput+"\""+ 
 	",\"amount\":"+amountInput+
 	",\"lastDeliveryDate\":"+"\""+lastDateInput+"\""+ 
 	",\"nextDeliveryDate\":"+"\""+nextDateInput+"\""+ "}";
-	var responseText = document.getElementById('stockOut');
+	let responseText = document.getElementById('stockOut');
 	let xhr = new XMLHttpRequest();
 	xhr.withcredentials=true;
     xhr.open("POST", "http://localhost:8080/JamesIndividualProject/api/stock/createStock/");
     xhr.onload = () => {
-        var returnJSON =JSON.parse(concatString);
+        let returnJSON =JSON.parse(concatString);
         console.log(concatString);
     	responseText.innerHTML=beautifyStock(returnJSON);
     }
@@ -61,8 +61,8 @@ function createStock()
 }
 function findStock()
 {
-	var responseText = document.getElementById('stockOut');
-	var userInput = document.getElementById('stockFindInput').value;
+	let responseText = document.getElementById('stockOut');
+	let userInput = document.getElementById('stockFindInput').value;
 	if(userInput == null|| userInput=="")
 	{
 		alert("Please Enter A StockId");
@@ -73,20 +73,25 @@ function findStock()
 	xhr.withcredentials=true;
     xhr.open("GET", "http://localhost:8080/JamesIndividualProject/api/stock/getAStock/"+userInput);
     xhr.onload = () => {
-        	var returnJSON=JSON.parse(xhr.response);
+        	let returnJSON=JSON.parse(xhr.response);
         	responseText.innerHTML=beautifyStock(returnJSON);
         }
     xhr.send();
 }
 function deleteStock()
 {
-	var responseText = document.getElementById('stockOut');
-	var userInput = document.getElementById('stockFindInput').value;
+	let responseText = document.getElementById('stockOut');
+	let userInput = document.getElementById('stockFindInput').value;
+	if(userInput==null||userInput=="")
+	{
+		alert("Please Fill In The Delete Field");
+		return false;
+	}
 	let xhr = new XMLHttpRequest();
 	xhr.withcredentials=true;
     xhr.open("DELETE", "http://localhost:8080/JamesIndividualProject/api/stock/deleteStock/"+userInput);
     xhr.onload = () => {
-        	var returnJSON=JSON.parse(xhr.response);
+        	let returnJSON=JSON.parse(xhr.response);
         	responseText.innerHTML=beautifyStock(returnJSON);
         }
     xhr.send();

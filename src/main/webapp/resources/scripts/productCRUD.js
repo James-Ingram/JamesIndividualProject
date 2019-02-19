@@ -1,12 +1,12 @@
-"use strict";
+'use strict';
 function getAllProducts()
 {
-	var response = document.getElementById('productsOut');
+	let response = document.getElementById('productsOut');
 	let xhr = new XMLHttpRequest();
 	xhr.withcredentials=true;
     xhr.open("GET", "http://localhost:8080/JamesIndividualProject/api/product/getAllProducts");
     xhr.onload = () => {
-    	var returnJSON =JSON.parse(xhr.response);
+    	let returnJSON =JSON.parse(xhr.response);
     	response.innerHTML = beautifyProduct(returnJSON);
     }
     xhr.send();
@@ -28,11 +28,11 @@ function validateCreate(val1,val2,val3,val4,val5)
 
 function createProduct()
 {
-	var nameInput = document.getElementById('productNameInput').value;
-	var descInput = document.getElementById('productDescInput').value;
-	var lineInput = document.getElementById('productLineInput').value;
-	var priceInput = document.getElementById('produtPriceInput').value;
-	var mSRPInput = document.getElementById('productMSRPInput').value;
+	let nameInput = document.getElementById('productNameInput').value;
+	let descInput = document.getElementById('productDescInput').value;
+	let lineInput = document.getElementById('productLineInput').value;
+	let priceInput = document.getElementById('produtPriceInput').value;
+	let mSRPInput = document.getElementById('productMSRPInput').value;
 	
 	let check = validateCreate(nameInput, descInput, lineInput, priceInput, mSRPInput);
  	if (check)
@@ -40,26 +40,26 @@ function createProduct()
             alert("Please Fill All Required Fields");
             return false;
         }
-	var concatString ="{\"productName\":" +"\""+nameInput+"\""+   
+	let concatString ="{\"productName\":" +"\""+nameInput+"\""+   
 	",\"description\":" +"\""+descInput+"\""+ 
 	",\"productLine\":" +"\""+lineInput+"\""+ 
 	",\"price\":"+priceInput+
 	",\"mSRP\":"+mSRPInput+ "}";
-	var responseText = document.getElementById('productsOut');
+	let responseText = document.getElementById('productsOut');
 	let xhr = new XMLHttpRequest();
 	xhr.withcredentials=true;
     xhr.open("POST", "http://localhost:8080/JamesIndividualProject/api/product/createProduct/");
     xhr.onload = () => {
-        var returnJSON =JSON.parse(concatString);
+        let returnJSON =JSON.parse(concatString);
         console.log(concatString);
     	responseText.innerHTML=beautifyProduct(returnJSON);
     }
     xhr.send(concatString);
 }
-function findProduct(variation)
+function findProduct(letiation)
 {
-		var userInput = document.getElementById('productFindInput').value;
-		var responseText = document.getElementById('productsOut');
+		let userInput = document.getElementById('productFindInput').value;
+		let responseText = document.getElementById('productsOut');
 		if(userInput== null|| userInput=="")
 			{
 				alert("Please Enter A ProductId");
@@ -69,15 +69,15 @@ function findProduct(variation)
 		xhr.withcredentials=true;
 	    xhr.open("GET", "http://localhost:8080/JamesIndividualProject/api/product/getAProduct/"+userInput);
 	    xhr.onload = () => {
-	        	var returnJSON=JSON.parse(xhr.response);
+	        	let returnJSON=JSON.parse(xhr.response);
 	        	responseText.innerHTML=beautifyProduct(returnJSON);
 	        }
 	    xhr.send();
 }
 function deleteProduct()
 {
-	var responseText = document.getElementById('productsOut');
-	var userInput = document.getElementById('productDeleteInput').value;
+	let responseText = document.getElementById('productsOut');
+	let userInput = document.getElementById('productDeleteInput').value;
 	if(userInput==null||userInput=="")
 		{
 			alert("Please Fill In The Delete Field");
