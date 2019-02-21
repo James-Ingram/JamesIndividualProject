@@ -33,7 +33,6 @@ public class ProductDBRepository implements ProductRepository {
 		Collection<Product> products = (Collection<Product>) query.getResultList();
 
 		return util.getJSONForObject(products);
-
 	}
 	
 	@Override
@@ -44,14 +43,8 @@ public class ProductDBRepository implements ProductRepository {
 	@Override
 	@Transactional(REQUIRED)
 	public String deleteProduct(Long id) {
-		if(!(manager.find(Product.class,id) instanceof Product))
-		{
-			return "<div>Message: \"Product Could Not Be Found\"</div>";
-		}else {
 		manager.remove(manager.find(Product.class,id));
 		return "<div>Message: \"Product Successfully Deleted\"</div>";
-		}
-		
 	}
 	
 	@Override
@@ -71,7 +64,4 @@ public class ProductDBRepository implements ProductRepository {
 	public void setUtil(JSONUtil util) {
 		this.util = util;
 	}
-
-
-
 }
