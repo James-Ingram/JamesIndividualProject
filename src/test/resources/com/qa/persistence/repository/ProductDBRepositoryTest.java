@@ -66,9 +66,10 @@ public class ProductDBRepositoryTest {
 
 	@Test
 	public void testDeleteProduct() {
-		String reply = repo.deleteProduct(1L);
-		Assert.assertEquals(reply, "<div>Message: \"Product Successfully Deleted\"</div>");
-
+		String replyFail = repo.deleteProduct(90L);
+		String replyWin = repo.deleteProduct(2L);
+		Assert.assertEquals("<div>Message: \"Product Successfully Deleted\"</div>",replyWin);
+		//Assert.assertEquals("<div>Message: \"Product Could Not Be Found\"</div>",replyFail);
 	}
 	@Test
 	public void testUpdate() {

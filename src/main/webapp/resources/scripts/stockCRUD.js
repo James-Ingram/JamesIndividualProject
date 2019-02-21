@@ -81,7 +81,7 @@ function findStock()
 function deleteStock()
 {
 	let responseText = document.getElementById('stockOut');
-	let userInput = document.getElementById('stockFindInput').value;
+	let userInput = document.getElementById('stockDeleteInput').value;
 	if(userInput==null||userInput=="")
 	{
 		alert("Please Fill In The Delete Field");
@@ -91,8 +91,7 @@ function deleteStock()
 	xhr.withcredentials=true;
     xhr.open("DELETE", "http://localhost:8080/JamesIndividualProject/api/stock/deleteStock/"+userInput);
     xhr.onload = () => {
-        	let returnJSON=JSON.parse(xhr.response);
-        	responseText.innerHTML=beautifyStock(returnJSON);
+        	responseText.innerHTML=xhr.response;
         }
     xhr.send();
 }
