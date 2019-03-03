@@ -44,7 +44,7 @@ public class StockDBRepository implements StockRepository{
 		Stock temp = new Stock();
 		temp = util.getObjectForJSON(stock, Stock.class);
 		manager.persist(temp);
-		deleteStock(id);
+		manager.remove(manager.find(Stock.class,id));		
 		return "Done";
 	}
 

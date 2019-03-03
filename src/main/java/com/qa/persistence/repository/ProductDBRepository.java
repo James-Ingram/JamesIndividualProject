@@ -52,7 +52,7 @@ public class ProductDBRepository implements ProductRepository {
 		Product temp = new Product();
 		temp = util.getObjectForJSON(product, Product.class);
 		manager.persist(temp);
-		deleteProduct(id);
+		manager.remove(manager.find(Product.class,id));
 		return "Done";
 	}
 	
