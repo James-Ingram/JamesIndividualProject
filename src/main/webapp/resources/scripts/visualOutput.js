@@ -59,7 +59,15 @@ function beautifyStock(object)
 }
 
 function showOptions(tagName) {
-	 else if (tagName === "findProduct") {
+	if (tagName === "findStock") {
+		let stockSelect = document.getElementById('stockSelect');
+
+		if (stockSelect.style.display === "block")
+			stockSelect.style.display = "none";
+		else {
+			stockSelect.style.display = "block";
+		}
+	} else if (tagName === "findProduct") {
 		let prodSelect = document.getElementById('productSelect');
 
 		if (prodSelect.style.display === "block")
@@ -75,6 +83,14 @@ function showOptions(tagName) {
 		else {
 			prodDel.style.display = "block";
 		}
+	} else if (tagName === "deleteStock") {
+		let stockDel = document.getElementById('stockDelete');
+
+		if (stockDel.style.display === "block")
+			stockDel.style.display = "none";
+		else {
+			stockDel.style.display = "block";
+		}
 	} else if (tagName === "updateProduct") {
 		let prodUpdate = document.getElementById('productUpdate');
 
@@ -83,6 +99,14 @@ function showOptions(tagName) {
 		else {
 			prodUpdate.style.display = "block";
 		}
+	} else if (tagName === "updateStock") {
+		let stockUpdate = document.getElementById('stockUpdate');
+
+		if (stockUpdate.style.display === "block")
+			stockUpdate.style.display = "none";
+		else {
+			stockUpdate.style.display = "block";
+		}
 	}else if (tagName === "createProduct") {
 		let prodCreate = document.getElementById('productCreate');
 
@@ -90,6 +114,14 @@ function showOptions(tagName) {
 			prodCreate.style.display = "none";
 		else {
 			prodCreate.style.display = "block";
+		}
+	}else if (tagName === "createStock") {
+		let stockUpdate = document.getElementById('stockCreate');
+
+		if (stockUpdate.style.display === "block")
+			stockUpdate.style.display = "none";
+		else {
+			stockUpdate.style.display = "block";
 		}
 	}
 }
