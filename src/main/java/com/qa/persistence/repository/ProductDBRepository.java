@@ -43,6 +43,10 @@ public class ProductDBRepository implements ProductRepository {
 	@Override
 	@Transactional(REQUIRED)
 	public String deleteProduct(Long id) {
+		if(manager.find(Product.class, id)==null)
+		{
+			return "Message: \"Product Does Not Exist!\"";
+		}
 		manager.remove(manager.find(Product.class,id));
 		return "<div>Message: \"Product Successfully Deleted\"</div>";
 	}
