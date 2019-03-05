@@ -37,6 +37,10 @@ public class ProductDBRepository implements ProductRepository {
 	
 	@Override
 	public String getAProduct(Long id) {
+		if(manager.find(Product.class, id)==null)
+		{
+			return "Product Does Not Exist!";
+		}
 			return util.getJSONForObject(manager.find(Product.class, id));
 	}
 
@@ -45,10 +49,10 @@ public class ProductDBRepository implements ProductRepository {
 	public String deleteProduct(Long id) {
 		if(manager.find(Product.class, id)==null)
 		{
-			return "Message: \"Product Does Not Exist!\"";
+			return "Product Does Not Exist!";
 		}
 		manager.remove(manager.find(Product.class,id));
-		return "<div>Message: \"Product Successfully Deleted\"</div>";
+		return "Product Successfully Deleted";
 	}
 	
 	@Override
