@@ -4,6 +4,7 @@ import javax.inject.Inject;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -45,6 +46,13 @@ public class StockEndpoint {
 	public String deleteStock(@PathParam("id") Long id)
 	{
 		return service.deleteStock(id);
+	}
+	@Path("/updateStock/{id}")
+	@PUT
+	@Produces({"application/json"})
+	public String updateStock(@PathParam("id") Long stockId, String stock )
+	{
+		return service.updateStock(stock, stockId);
 	}
 	
 	public void setService(StockService service) {

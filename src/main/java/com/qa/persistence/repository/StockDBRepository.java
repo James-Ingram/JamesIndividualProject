@@ -47,7 +47,7 @@ public class StockDBRepository implements StockRepository{
 		temp = util.getObjectForJSON(stock, Stock.class);
 		manager.persist(temp);
 		manager.remove(manager.find(Stock.class,id));		
-		return "Done";
+		return "Stock Item Updated";
 	}
 
 	@Override
@@ -70,6 +70,10 @@ public class StockDBRepository implements StockRepository{
 
 	@Override
 	public String getAStock(Long id) {
+		if(manager.find(Stock.class, id)==null)
+		{
+			return "Stock Item Does Not Exist!";
+		}
 			return util.getJSONForObject(manager.find(Stock.class, id));
 	}
 	

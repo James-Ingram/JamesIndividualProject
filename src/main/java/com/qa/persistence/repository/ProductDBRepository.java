@@ -61,7 +61,7 @@ public class ProductDBRepository implements ProductRepository {
 		temp = util.getObjectForJSON(product, Product.class);
 		manager.persist(temp);
 		manager.remove(manager.find(Product.class,id));
-		return "Done";
+		return "Product Updated";
 	}
 	
 	
