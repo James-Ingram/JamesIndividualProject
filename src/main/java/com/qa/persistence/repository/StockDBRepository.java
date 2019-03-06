@@ -3,6 +3,7 @@ package com.qa.persistence.repository;
 import static javax.transaction.Transactional.TxType.REQUIRED;
 
 import java.util.Collection;
+
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -25,9 +26,10 @@ public class StockDBRepository implements StockRepository{
 	@Override
 	@Transactional(REQUIRED)
 	public String createStock(String stock) {
+
 		Stock aStockItem = util.getObjectForJSON(stock, Stock.class);
 		manager.persist(aStockItem);
-		return "<div>Message: \"Stock Item has been added\"</div>";
+		return "Stock Item has been added";
 	}
 
 	@SuppressWarnings("unchecked")
@@ -45,14 +47,18 @@ public class StockDBRepository implements StockRepository{
 		temp = util.getObjectForJSON(stock, Stock.class);
 		manager.persist(temp);
 		manager.remove(manager.find(Stock.class,id));		
-		return "Done";
+		return "Stock Item Updated";
 	}
 
 	@Override
 	@Transactional(REQUIRED)
 	public String deleteStock(Long stockId) {
+		if(manager.find(Product.class, stockId)==null)
+		{
+			return "Stock Item Does Not Exist!";
+		}
 			manager.remove(manager.find(Stock.class, stockId));
-		return "<div>Message: \"Stock Item Successfully Deleted\"</div>";
+		return "Stock Item Successfully Deleted";
 	}
 
 	public void setManager(EntityManager manager) {
@@ -64,6 +70,10 @@ public class StockDBRepository implements StockRepository{
 
 	@Override
 	public String getAStock(Long id) {
+		if(manager.find(Stock.class, id)==null)
+		{
+			return "Stock Item Does Not Exist!";
+		}
 			return util.getJSONForObject(manager.find(Stock.class, id));
 	}
 	
