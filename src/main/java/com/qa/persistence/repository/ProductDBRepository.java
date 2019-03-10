@@ -24,7 +24,7 @@ public class ProductDBRepository implements ProductRepository {
 	public String createProduct(String product) {
 		Product aProduct = util.getObjectForJSON(product, Product.class);
 		manager.persist(aProduct);
-		return "<div>Message: \"Product has been added\"</div>";
+		return "Message: \"Product has been added\"";
 	}
 	@SuppressWarnings("unchecked")
 	@Override
