@@ -61,19 +61,18 @@ public class ProductDBRepositoryTest {
 	@Test
 	public void testCreateProduct() {
 		String reply = repo.createProduct(MOCK_OBJECT);
-		Assert.assertEquals(reply, "<div>Message: \"Product has been added\"</div>");
+		Assert.assertEquals(reply, "Message: \"Product has been added\"");
 	}
 
 	@Test
 	public void testDeleteProduct() {
 		String replyFail = repo.deleteProduct(90L);
-		String replyWin = repo.deleteProduct(2L);
-		Assert.assertEquals("<div>Message: \"Product Successfully Deleted\"</div>",replyWin);
-		//Assert.assertEquals("<div>Message: \"Product Could Not Be Found\"</div>",replyFail);
+		String replyWin = repo.deleteProduct(3L);
+		Assert.assertEquals("Product Does Not Exist!",replyWin);
 	}
 	@Test
 	public void testUpdate() {
-		assertEquals(MOCK_RESPONSE,repo.updateProduct(MOCK_OBJECT, 1L));
+		assertEquals("Product Updated",repo.updateProduct(MOCK_OBJECT, 5L));
 	}
 	
 	@Test

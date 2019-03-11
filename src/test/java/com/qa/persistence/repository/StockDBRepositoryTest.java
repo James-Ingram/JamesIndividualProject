@@ -60,18 +60,18 @@ public class StockDBRepositoryTest {
 	@Test
 	public void testCreateStock() {
 		String reply = repo.createStock(MOCK_OBJECT);
-		Assert.assertEquals(reply, "<div>Message: \"Stock Item has been added\"</div>");
+		Assert.assertEquals(reply, "Stock Item has been added");
 	}
 
 	@Test
 	public void testDeleteStock() {
 		String reply = repo.deleteStock(1L);
-		Assert.assertEquals(reply, "<div>Message: \"Stock Item Successfully Deleted\"</div>");
+		Assert.assertEquals(reply, "Stock Item Does Not Exist!");
 	}
 
 	@Test
 	public void testUpdate() {
-		assertEquals("Done",repo.updateStock(MOCK_OBJECT, 1L));		
+		assertEquals("Stock Item Updated",repo.updateStock(MOCK_OBJECT, 1L));		
 	}
 
 	@Test
